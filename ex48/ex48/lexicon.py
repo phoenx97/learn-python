@@ -4,26 +4,34 @@ stops = ['the', 'in', 'of', 'from', 'at', 'it']
 nouns = ['door', 'bear', 'princess', 'cabinet']
 
 def scan(string):
+    
     result = []
     sentence = string.split()
 
     for word in sentence:
-        if word in directions:
+
+        if word.lower() in directions:
             result.append(('direction', word))
-        elif word in verbs:
+
+        elif word.lower() in verbs:
             result.append(('verb', word))
-        elif word in stops:
+
+        elif word.lower() in stops:
             result.append(('stop', word))
-        elif word in nouns:
+
+        elif word.lower() in nouns:
             result.append(('noun', word))
+
         elif convert_number(word) != None:
             result.append(('number', int(word)))
+
         else:
             result.append(('error', word))
 
     return result
 
 def convert_number(c):
+
     try:
         return int(c)
     except:
