@@ -10,13 +10,13 @@ def scan(string):
     sentence = string.split()
 
     for word in sentence:
-        if is_direction(word):
+        if word in directions:
             result.append(('direction', word))
-        elif is_verb(word):
+        elif word in verbs:
             result.append(('verb', word))
-        elif is_stop(word):
+        elif word in stops:
             result.append(('stop', word))
-        elif is_noun(word):
+        elif word in nouns:
             result.append(('noun', word))
         elif is_number(word):
             result.append(('number', int(word)))
@@ -24,34 +24,6 @@ def scan(string):
             result.append(('error', word))
 
     return result
-
-def is_direction(string):
-    for word in directions:
-        if word == string:
-            return True
-
-    return False
-
-def is_verb(string):
-    for word in verbs:
-        if word == string:
-            return True
-
-    return False
-
-def is_stop(string):
-    for word in stops:
-        if word == string:
-            return True
-
-    return False
-
-def is_noun(string):
-    for word in nouns:
-        if word == string:
-            return True
-
-    return False
 
 def is_number(string):
     for char in string:
