@@ -1,0 +1,10 @@
+{% include 'header.html' %}
+<p>
+{% if greeting %}
+    I just wanted to say <em style="color: green; font-size: 2em;">{{ greeting }}</em>
+{% else %}
+    <em>Hello</em>, world!
+{% endif %}
+</p>
+<p><a href="{% url 'change' %}">Change this greeting</a></p>
+{% include 'footer.html' %}
