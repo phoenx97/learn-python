@@ -4,9 +4,10 @@ from django.core.urlresolvers import reverse
 
 greeting = "Hello World"
 
+
 def home(request):
     page_title = 'Gothons From Planet Percal #25'
-    greeting="Hello World"
+    greeting = "Hello World"
 
     if request.GET != {}:
         greeting = request.GET['greeting']
@@ -14,10 +15,12 @@ def home(request):
     context = {'greeting': greeting, 'page_title': page_title}
     return render(request, 'index.html', context)
 
+
 def change(request):
     page_title = 'Sample Web Form'
     context = {'page_title': page_title}
     return render(request, 'hello_form.html', context)
+
 
 def form_handle(request):
     greeting = "Something went wrong"
